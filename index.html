@@ -50,5 +50,19 @@
   <h1>THE POINTLESS BUTTON</h1>
   <button id="button"></button>
   <p>(It does nothing. Absolutely nothing.)</p>
+
+  <!-- Add your sound here -->
+  <audio id="splat" src="snd_splat.wav" preload="auto"></audio>
+
+  <script>
+    const button = document.getElementById("button");
+    const splat = document.getElementById("splat");
+
+    button.addEventListener("click", () => {
+      // Play sound (but still do nothing else)
+      splat.currentTime = 0; // rewind to start in case of rapid clicks
+      splat.play().catch(() => {}); // silent fail if autoplay blocked
+    });
+  </script>
 </body>
 </html>
